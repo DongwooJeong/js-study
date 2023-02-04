@@ -136,4 +136,33 @@ JavaScript Study
         ```
     - argument는 function 안에서만 존재함
 * NaN: 숫자가 아니라는 데이터 타입
+***
+### 2-9. Recap I
+***
+### 2-10. Recap II
+* 계산기 만들기
+***
+### 2-11. Returns
+* 함수에서 말고 나에게 결과를 제공하도록 만들기
+    - console.log나 alert는 그냥 실행하고 끝
+    - return: function의 결과를 대체함
+        - function의 목적은 결과를 return하는 것
+        - 값을 출력하고 끝내는 게 아니라 나중에 저장된 값을 다시 사용할 수 있음
+***
+### 2-12. Recap
+***
+### 2-13. Conditionals
+* 조건문: if ~
+* prompt: argument 두 개, 사용자에게 메시지를 출력하고 값을 받아옴
+    - 안 예뻐서 잘 안 씀
+    - default type: string
+        + typeof 로 확인
+            ```js
+            console.log(typeof age);
+            ```
+    - string을 int 타입으로 바꾸기: parseInt
+        + 숫자 형태의 string만 가능: "15"
+***
+### 2-14. Conditionals II
+
 

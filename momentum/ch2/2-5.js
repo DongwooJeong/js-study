@@ -6,7 +6,7 @@ const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
 console.log(daysOfWeek);
 
 // Get Item from Array
-console.log(daysOfWeek[5]);
+console.log(daysOfWeek[25]);
 
 //Add one more day of Array
 daysOfWeek.push("sun");

@@ -5,6 +5,7 @@ JavaScript Study
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Welcome to JavaScript](#welcome-to-javascript)
+3. [JavaScript on the Browser](#javascript-on-the-browser)
 ***
 1\) Introduction
 ---
@@ -164,5 +165,50 @@ JavaScript Study
         + 숫자 형태의 string만 가능: "15"
 ***
 ### 2-14. Conditionals II
-
-
+* isNaN: returns a Boolean value depending on if the value is not a number
+* conditional
+    ```js
+     if(condition){ 
+    /// condition ==true 
+    } else {
+    /// condition ==false
+    }
+    ```
+    - condition should be a boolean value
+***
+### 2-15. Conditionals III
+* if~ else if~ else~
+* AND: &&
+* OR: ||
+***
+### 2-16. Recap
+***
+3\) JavaScript on the Browser
+---
+### 3.0 The Document Object
+* JavaScript 쓰는 이유: HTML과 연동하기 위해
+* HTML의 객체를 가져와서 자바스크립트로 콘트롤할 수 있음    
+    - console에 document를 치면 html 코드를 볼 수 있음
+    - console.dir(document) -> document는 object이다
+    - document.title하면 html의 title을 가져옴
+    - document.title = "Hi" 라고 치면 title이 바뀜 
+    - console 뿐만 아니라 JS 파일에서도 콘트롤 가능
+    - document.body: body태그 내용을 가져옴
+***
+### 3.1 HTML in JavaScript
+* HTML의 id를 JavaScript로 가져오는 법
+    - document.getElementById("")
+* 우리가 하는 일
+    1. document로부터 항목을 가져옴
+    2. 그 항목을 변경함    
+***
+### 3.2 Searching for Elements
+* getElementByClassName(""): classname으로 가져옴, 조건에 맞는 값의 array를 출력
+* getElementsByTagName: 특정 tag를 가져옴
+* querySelector: CSS 방식으로 검색
+    - class 등을 .으로 명시해줘야 함
+    - 단 하나의 element만 출력, 여러 개 있으면 첫번째만 나옴
+        + 모두 가져오려면 querySelectorAll
+    - 정말 많이 사용
+***
+### 3.3

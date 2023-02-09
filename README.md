@@ -211,4 +211,51 @@ JavaScript Study
         + 모두 가져오려면 querySelectorAll
     - 정말 많이 사용
 ***
-### 3.3
+### 3.3 Events
+* console.dir: 안에 내용 보고 싶을때
+    - on~: events
+* event: 페이지에서의 모든 동작
+    - javascript가 listen할 수 있음
+    - click: 
+        + addEventListener(): event를 listen함
+            * 두번째 argument에 함수를 넣어서 event를 감지할 때마다 함수를 실행시킬 수 있음
+                - JavaScript가 함수를 대신 실행하게 하기 위해 ()를 안 씀 
+***
+### 3.4 Events part Two
+* WebAPI: JavaScript
+* mouseenter: 마우스 올라가는 이벤트
+* mouseleave: 마우스 올라갔다가 나가는 이벤트
+***
+### 3.5 More Events
+* another way to listen: 
+> element.oneventname = functionname;
+* window: 윈도우 창에 관한 것
+***
+### 3.6 CSS in JavaScript
+* if~else~문을 사용해서 style을 변경하기
+* getter와 setter
+* 변수를 사용해서 코드를 깔끔하게 만들자
+***
+### 3.7 CSS in JavaScript part Two
+* style은 CSS, JavaScript는 상호작용
+    - 따라서 3-6과 같은 JS는 css에서 하는게 낫다
+* style 바꾸기
+    - css에서 클래스를 만들기
+    - js에서 클래스를 가져와서 html에 영향
+    - class 오타나면 안됨
+    - string을 변수로 만들면 에러 최소화 가능
+        + console에서 뭐 틀렸는지 알려주기 때문
+    - 문제: class가 여러 개인데 JS에서 하나의 classname에 대해서만 실행하면 나머지 class가 없어짐
+***
+### 3.8 CSS in JavaScript part Three
+* 앞선 문제 해결: classList.contains() 사용
+    - add, remove로 특정 class를 추가하고 삭제
+    ```js
+    const clickedClass = "clicked";
+    if(h1.classList.contains(clickedClass)){
+        h1.classList.remove(clickedClass);
+    } else {
+        h1.classList.add(clickedClass);
+    }
+    ```
+    - 근데 이거 toggle로 한번에 가능

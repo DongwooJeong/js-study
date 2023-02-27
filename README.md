@@ -259,3 +259,65 @@ JavaScript Study
     }
     ```
     - 근데 이거 toggle로 한번에 가능
+***
+### 4.0 Input Values
+* application을 만들어보자
+    1. 유저에게 input을 받기
+    2. 정보를 받기
+    3. 받은 정보를 표시하기
+* HTML의 요소를 끌고와서 JS에서 작업하기
+### 4.1 Form Submission 
+* 입력값에 제한을 두기
+    1. JS 파일에서 if else 문 사용하기
+        + if(~~) {~~} else {~~}
+            * value.length: 길이 출력
+    2. HTML 내장 기능 사용하기
+        + form 내부에서 input에 제한
+            * required
+            * maxlength
+        + 더이상 button이 click되는 event에 집중할 필요가 없음
+        + 단, 출력할 때 매번 페이지가 새로고침되는 문제가 있음
+### 4-2. Events
+* form을 submit할 때 새로고침되는게 디폴트임
+* 이 기본동작을 없애기 위해
+* 함수 뒤에 ()가 붙어있으면 function을 자동으로 실행
+    - 사실 JS가 함수를 호출할 때 () 내의 정보(event object)를 전달함
+    ```js
+    function onLoginSUbmit(tomato) {
+        tomato.preventDefault();
+        console.log(tomato);
+    }
+    ```
+    - preventDefault(): 브라우저가 기본적으로 동작(ex. 새로고침)하려는 걸 막는 것
+    - 위와 같이 tomato 같은 event object를 적어줌으로써 event에 대한 정보를 얻을 수 있음
+        + event object도 함수가 있음
+            * preventDefault()
+    - tomato 말고 event라고 적는게 컨벤션
+### 4-3.Events part Two
+* Default Behavior of a *form*: submit
+* Default Behavior of a *link*: go to a webpage once clicked
+* JS는 함수를 실행시키는 동시에 그 함수의 첫번째 인자에 object를 넣어줌
+    - 그 object는 방금 일어난 event에 대한 정보를 담고 있음
+* addEventListener의 argument에 있는 function은 user가 실행시키는 것이 아니라 브라우저가 실행시키는 것
+    - 거기다가 event의 정보도 담아줌
+        - 우리가 자리를 만들어주면
+### 4-4. Getting Username
+* 유저가 이름을 제출하면 원래의 form을 없애기
+    1. css에 class 만들기
+        + display: none;
+    2. js의 함수에 class를 실행하는 걸 추가하기
+* 변수에 별로 안 중요한 string을 저장할 때에는 변수이름을 대문자로 적는게 컨벤션
+* "string" + variablename == `string ${variablename}`
+### 4-5. Saving Username
+* username 기억하기
+    - localStorage에 저장하기
+        + setItem(key, value)
+        + getItem(key)
+        + removeItem(key)
+### 4-6. Loading Username
+* form을 보여주기 전에 local storage을 확인해서, 정보가 있으면 h1을 보여주기
+    1. local storage에 유저정보 유무를 확인
+    2. if else 절로 유저정보가 있으면 greetings, 없으면 form을 보여주기
+* 항상 중복되는 코드가 있으면 함수로, 중복되는 string이 있으면 변수로 만들자
+### 4.7 Recap
+***

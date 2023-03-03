@@ -3,9 +3,12 @@ JavaScript Study
 노마드코더 JavaScript 기초 강의: [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners/lobby?utm_source=free_course&utm_campaign=javascript-for-beginners&utm_medium=site)
 ***
 # Table of Contents
-1. [Introduction](#introduction)
-2. [Welcome to JavaScript](#welcome-to-javascript)
-3. [JavaScript on the Browser](#javascript-on-the-browser)
+1. [Introduction](#1-introduction)
+2. [Welcome to JavaScript](#2-welcome-to-javascript)
+3. [JavaScript on the Browser](#3-javascript-on-the-browser)
+4. [Login](#4-login)
+5. [Clock](#5-clock)
+6. [Quotes and Background](#6-quotes-and-background)
 ***
 1\) Introduction
 ---
@@ -260,6 +263,8 @@ JavaScript Study
     ```
     - 근데 이거 toggle로 한번에 가능
 ***
+4\) Login
+---
 ### 4.0 Input Values
 * application을 만들어보자
     1. 유저에게 input을 받기
@@ -269,7 +274,7 @@ JavaScript Study
 ### 4.1 Form Submission 
 * 입력값에 제한을 두기
     1. JS 파일에서 if else 문 사용하기
-        + if(~~) {~~} else {~~}
+        + if(조건) {코드} else {코드}
             * value.length: 길이 출력
     2. HTML 내장 기능 사용하기
         + form 내부에서 input에 제한
@@ -300,7 +305,7 @@ JavaScript Study
     - 그 object는 방금 일어난 event에 대한 정보를 담고 있음
 * addEventListener의 argument에 있는 function은 user가 실행시키는 것이 아니라 브라우저가 실행시키는 것
     - 거기다가 event의 정보도 담아줌
-        - 우리가 자리를 만들어주면
+        - 우리가 자리를 만들어주면 실행
 ### 4-4. Getting Username
 * 유저가 이름을 제출하면 원래의 form을 없애기
     1. css에 class 만들기
@@ -320,4 +325,69 @@ JavaScript Study
     2. if else 절로 유저정보가 있으면 greetings, 없으면 form을 보여주기
 * 항상 중복되는 코드가 있으면 함수로, 중복되는 string이 있으면 변수로 만들자
 ### 4.7 Recap
+***
+5\) Clock
+---
+### 5.0 Intervals
+* js가 복잡해지지 않게 각 기능별로 다른 파일을 만들어두자
+* interval: 매번 일어나야 하는 무언가
+    - ex. 매 2초마다
+    - setInterval 함수: 매 interval마다 특정 동작을 실행시킴
+        + 첫번째 argument: 실행하고자 하는 함수
+        + 두번째 argument: milliseconds
+***
+### 5.1 Timeouts and Dates
+* Timesouts: 매번 실행하는 게 아니라 일정 시간 기다렸다가 한번 실행하기기
+    - setTimeout 함수: 일정 시간 기다렸다가 특정 동작을 한번 수행
+        + 첫번째 argument: 실행하고자 하는 함수
+        + 두번째 argument: milliseconds
+
+* Dates: 날짜와 시간을 갖고 오는 함수
+    - ex. getHours(), getMinutes(), ...
+
+***
+### 5.2 PadStart
+* 초 단위가 00 형태가 아니라 0 형태로 나올 때
+* padStart(): string의 길이를 변환시켜주는 함수
+    - 첫번째 argument: 문자열의 길이
+    - 두번째 argument: 채워넣을 문자열
+        + ex. "1".padStart(2,"0") -> "01"
+    - 비슷한 함수로 padEnd()도 있음
+    - 시간의 형태를 바꿀 때, string의 형태로 변환할 것 
+        + String()
+***
+### 5.3 Recap
+***
+6\) Quotes and Background
+---
+### 6.0 Quotes
+* 페이지에 인용구를 넣어보자
+    + array 형식으로: [{인용:인용구,사람:이름},...]
+* 랜덤으로 숫자를 뽑기
+    - Math 모듈
+        + random 함수: 0과 1사이 수 무작위 출력
+            * Math.random()
+        + round 함수: 반올림
+            * Math.round(1.5) -> 2
+        + ceil 함수: 올림  
+            * Math.ceil(1.4) -> 2
+        + floor 함수: 내림
+            * Math.floor(1.9) -> 1
+* array의 길이를 알아보기
+    - length
+        + ex. [1,2].length -> 2
+***
+### 6.1 Background
+* 랜덤 배경화면을 넣어보자
+    - HTML에서 가져오는게 아니라 JS에서 만들어서 HTML에 추가하기
+        1. img 파일명을 담은 array 만들기
+        2. 인용구 때처럼 랜덤으로 파일명을 변수에 담기
+        3. img를 만들기
+            * document.createElement
+        4. img의 src에 랜덤 변수를 넣기
+            .src
+        5. body에 img를 넣기
+            * document.body.appendChild()
+***
+### 6.2 Recap
 ***

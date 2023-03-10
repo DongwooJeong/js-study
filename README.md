@@ -9,15 +9,13 @@ JavaScript Study
 4. [Login](#4-login)
 5. [Clock](#5-clock)
 6. [Quotes and Background](#6-quotes-and-background)
+7. [To Do List](#7-to-do-list)
 ***
 1\) Introduction
 ---
-
 ***
 2\) Welcome to JavaScript
 ---
-
-
 ### 2.0 Your First JS Project
 * 자바스크립트는 브라우저의 console을 통해 사용함
     |소스|위치|
@@ -73,7 +71,7 @@ JavaScript Study
     - 옛날에는 var을 사용, 값 바꾸기 가능
         * 언어의 보호를 받을 수 없다?
 ***
-### 2-4. Booleans
+### 2.4 Booleans
 * Boolean: true or false
     - 파이썬에서는 capitalized
 * null: 변수에 아무 것도 없음
@@ -81,7 +79,7 @@ JavaScript Study
     - 파이썬에서는 none
 * undefined: 아직 값을 대입하지 않음
 ***
-### 2-5. Arrays
+### 2.5 Arrays
 * 데이터 구조: 데이터 저장 방법
 * Arrays
     - [ ] 형식으로 데이터의 리스트 저장
@@ -102,7 +100,7 @@ JavaScript Study
 * JavaScript의 코멘트: //
 * log와 push처럼 .뒤에 오는 건 function
 ***
-### 2-6. Objects
+### 2.6 Objects
 * 변수를 하나하나 선언하거나 array를 만드는 방식으로는 여러 개의 속성(property)를 갖는 하나의 개체를 만들기 번거로움
     - object를 만들어서 property를 사용해보자
     - { } 사용, = 대신 : 사용, 끝에 , 사용
@@ -121,13 +119,13 @@ JavaScript Study
     - const로 선언된 object의 속성에 대입된 값은 바꾸는 게 가능
     - 새로운 속성을 만들기도 바로 선언하는 방식으로 쉽게 가능함
 ***
-### 2-7. Functions I
+### 2.7 Functions I
 * functions: 반복해서 사용할 수 있는 코드 모음
     - function으로 선언
     - 함수이름.( )
     - { } 안에 내용 적기 
 
-### 2-8. Functions II
+### 2.8 Functions II
 * 함수에 argument를 추가하기
     - ( ) 안에 argument를 쓰는데, ,를 사용해서 여러 argument를 받을 수 있음
         ```js
@@ -141,21 +139,21 @@ JavaScript Study
     - argument는 function 안에서만 존재함
 * NaN: 숫자가 아니라는 데이터 타입
 ***
-### 2-9. Recap I
+### 2.9 Recap I
 ***
-### 2-10. Recap II
+### 2.10 Recap II
 * 계산기 만들기
 ***
-### 2-11. Returns
+### 2.11 Returns
 * 함수에서 말고 나에게 결과를 제공하도록 만들기
     - console.log나 alert는 그냥 실행하고 끝
     - return: function의 결과를 대체함
         - function의 목적은 결과를 return하는 것
         - 값을 출력하고 끝내는 게 아니라 나중에 저장된 값을 다시 사용할 수 있음
 ***
-### 2-12. Recap
+### 2.12 Recap
 ***
-### 2-13. Conditionals
+### 2.13 Conditionals
 * 조건문: if ~
 * prompt: argument 두 개, 사용자에게 메시지를 출력하고 값을 받아옴
     - 안 예뻐서 잘 안 씀
@@ -167,7 +165,7 @@ JavaScript Study
     - string을 int 타입으로 바꾸기: parseInt
         + 숫자 형태의 string만 가능: "15"
 ***
-### 2-14. Conditionals II
+### 2.14 Conditionals II
 * isNaN: returns a Boolean value depending on if the value is not a number
 * conditional
     ```js
@@ -179,12 +177,12 @@ JavaScript Study
     ```
     - condition should be a boolean value
 ***
-### 2-15. Conditionals III
+### 2.15 Conditionals III
 * if~ else if~ else~
 * AND: &&
 * OR: ||
 ***
-### 2-16. Recap
+### 2.16 Recap
 ***
 3\) JavaScript on the Browser
 ---
@@ -282,7 +280,7 @@ JavaScript Study
             * maxlength
         + 더이상 button이 click되는 event에 집중할 필요가 없음
         + 단, 출력할 때 매번 페이지가 새로고침되는 문제가 있음
-### 4-2. Events
+### 4.2 Events
 * form을 submit할 때 새로고침되는게 디폴트임
 * 이 기본동작을 없애기 위해
 * 함수 뒤에 ()가 붙어있으면 function을 자동으로 실행
@@ -298,7 +296,7 @@ JavaScript Study
         + event object도 함수가 있음
             * preventDefault()
     - tomato 말고 event라고 적는게 컨벤션
-### 4-3.Events part Two
+### 4.3 Events part Two
 * Default Behavior of a *form*: submit
 * Default Behavior of a *link*: go to a webpage once clicked
 * JS는 함수를 실행시키는 동시에 그 함수의 첫번째 인자에 object를 넣어줌
@@ -306,20 +304,20 @@ JavaScript Study
 * addEventListener의 argument에 있는 function은 user가 실행시키는 것이 아니라 브라우저가 실행시키는 것
     - 거기다가 event의 정보도 담아줌
         - 우리가 자리를 만들어주면 실행
-### 4-4. Getting Username
+### 4.4 Getting Username
 * 유저가 이름을 제출하면 원래의 form을 없애기
     1. css에 class 만들기
         + display: none;
     2. js의 함수에 class를 실행하는 걸 추가하기
 * 변수에 별로 안 중요한 string을 저장할 때에는 변수이름을 대문자로 적는게 컨벤션
 * "string" + variablename == `string ${variablename}`
-### 4-5. Saving Username
+### 4.5 Saving Username
 * username 기억하기
     - localStorage에 저장하기
         + setItem(key, value)
         + getItem(key)
         + removeItem(key)
-### 4-6. Loading Username
+### 4.6 Loading Username
 * form을 보여주기 전에 local storage을 확인해서, 정보가 있으면 h1을 보여주기
     1. local storage에 유저정보 유무를 확인
     2. if else 절로 유저정보가 있으면 greetings, 없으면 form을 보여주기
@@ -391,3 +389,83 @@ JavaScript Study
 ***
 ### 6.2 Recap
 ***
+7\) To Do List
+---
+### 7.0 Setup
+* to do list 를 만들어보자
+    - ul로 묶고 안에 li로 만드는 것
+    1. 우선, id를 가진 form을 만든다 (html) 
+    2. form 안에 id를 가진 ul을 만든다 (html)
+    3. JS로 id를 이용해서 위 요소들을 가져온다 (JS)
+        1. id로 form과 list를 가져와서 변수에 넣는다 
+        2. function을 만들어서 form의 기본 동작을 만든다
+            + form은 기본적으로 페이지를 refresh하는 기능을 갖기 때문에 이를 막아줘야 함([참조](#43-events-part-two))
+        3. document 전체에서 querySelector로 toDoForm의 id에서의 input을 찾는다 (JS)
+            + 아니면 toDoForm이 이미 만들어져있으므로 toDoForm에서 바로 input을 찾을 수도 있음
+    4. to do list의 입력값을 변수에 저장한다 (JS)
+    5. to do list에서 enter를 누를 때마다 안에 입력값 없앤다 (JS)
+### 7.1 Adding To Dos
+* To Do List를 구성해보자
+    1. to do list를 구성할 새 function을 만들고, todolist 입력값(toDoInput.value)이 들어간 변수(newTodo)를 인자로 넣는다 (JS)
+    2. 기존에 만들었던 function에 새 function을 인자와 함께 넣어준다
+    3. [background할 때 했던 것](#61-background)처럼 li를 js에서 만들어서 html로 보내보자 (JS)
+        1. li를 element를 만들어서 변수에 넣는다.        
+        2. li 내부에 존재할 span 변수도 만든다
+            * 나중에 to do를 삭제하는 버튼을 만들기 위함
+        3. li 내부에 있어야 하기 때문에 span을 li의 child로 만든다
+        4. span의 innerText에 newTodo를 넣는다
+        5. li 변수를 실제 to do list에 넣는다
+* 코딩 시 주의사항
+    - getElementById는 ID가 아니라 Id이다
+    - getElementById는 #으로 id를 찾는게 아니고 바로 id의 이름으로 찾음
+### 7.2 Deleting To Dos
+* 각각 생성된 to do를 없애는 button을 만들어보자 (JS)
+    1. span을 li에 append 하기 전에 button 변수를 만든다
+    2. button의 innerText를 만들어준다
+    3. button 변수도 li 변수에 append해준다
+    4. button에 click이라는 event를 listen하게 만들어준다
+        + button은 click했을 때 작동되기 때문
+    5. 함수 인자의 target의 parentElement를 지우도록 만들어준다
+        1. parentElement를 지정한 변수를 생성한다
+        2. remove 함수로 지워준다
+        + button을 click하면 어떤 li를 지워줘야 하는지 모르기 때문에 target의 parentElement를 사용
+            * target은 html element(클릭했을 때의 대상)
+                - parentElement는 target의 property로 클릭된 element의 부모이다
+### 7.3 Saving To Dos
+* 만든 to do list를 저장하자
+    - local storage 이용
+    1. array를 하나 만든다
+    2. 마지막에 실행시킬 함수(handleToDoSubmit)에서 todo 내용을 만드는 함수(paintToDo)를 실행시키기 전에 array에 push해주자
+    3. localstorage에 array를 저장하는 함수를 만들자
+        + local storage는 오로지 text 형태로만 저장해서 array 형태로 저장할 수 없음
+        + 중복된 value도 저장 불가능
+            * JSON.stringify라는 함수로 javascript의 어떤 코드나 element든 문자열로 만들 수 있음
+                - 이건 중복 가능
+    4. 마지막에 실행시킬 함수(handleToDoSubmit)에 저장하는 함수를 넣어서 실행시켜준다
+### 7-4. Loading To Dos part One
+* local storage에 있는 데이터를 array로 불러오자
+    - 그냥 불러오면 string 형태로 된 array를 갖고옴
+        + 이걸 JSON.parse를 사용해서 문자열을 array로 바꿀 수 있음
+    1. local storage에서 값을 갖고와서 변수에 저장하자
+    2. if문을 써서 local storage가 null이 아닐 때 값을 array로 바꿔서 저장하자
+    3. forEach를 사용해서 array의 각 element에 function을 적용시키자
+* arrow function
+    - function을 직접 만들어서 사용하지 않고 화살표를 활용해서 함수와 비슷한 방법으로 동작을 수행하는 방법
+    ```js
+    // number one
+    function sayHello() {
+        console.log("this is the turn of", item);
+    }
+    // number two
+    parsedToDos.forEach((item) => console.log("this is the turn of ", item));
+    ```
+        + 1번과 2번은 같은 결과를 출력함
+### 7-5. Loading To Dos part Two
+* 불러온 data를 화면에 출력하자
+    - 전에 만들었던 출력하는 함수(paintToDo)를 활용
+    1. (if문 안에) foreach를 써서 불러온 array의 각 원소에 paintToDo를 적용시켜서 출력함
+    2. 처음에 item을 저장하는데 쓰기 위해 만들었던 array(toDos)를 local storage에서 변환해온 todo array(parsedTodos)로 바꿔줌
+        + JS파일에서 toDos array는 비어있는 상태로 시작했기 때문에 덮어쓰는 문제가 발생하기 때문
+        1. 처음 array를 만드는 변수를 let을 써서 나중에 바꿀 수 있도록 함
+        2. if문(savedToDos가 null이 아님, 즉, local storage에 data가 있음)에 처음의 empty array에 저장된 array를 덮어씌움
+            

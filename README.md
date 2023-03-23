@@ -10,6 +10,7 @@ JavaScript Study
 5. [Clock](#5-clock)
 6. [Quotes and Background](#6-quotes-and-background)
 7. [To Do List](#7-to-do-list)
+8. [Weather](#8-weather)
 ***
 1\) Introduction
 ---
@@ -404,6 +405,7 @@ JavaScript Study
             + 아니면 toDoForm이 이미 만들어져있으므로 toDoForm에서 바로 input을 찾을 수도 있음
     4. to do list의 입력값을 변수에 저장한다 (JS)
     5. to do list에서 enter를 누를 때마다 안에 입력값 없앤다 (JS)
+***
 ### 7.1 Adding To Dos
 * To Do List를 구성해보자
     1. to do list를 구성할 새 function을 만들고, todolist 입력값(toDoInput.value)이 들어간 변수(newTodo)를 인자로 넣는다 (JS)
@@ -418,6 +420,7 @@ JavaScript Study
 * 코딩 시 주의사항
     - getElementById는 ID가 아니라 Id이다
     - getElementById는 #으로 id를 찾는게 아니고 바로 id의 이름으로 찾음
+***
 ### 7.2 Deleting To Dos
 * 각각 생성된 to do를 없애는 button을 만들어보자 (JS)
     1. span을 li에 append 하기 전에 button 변수를 만든다
@@ -431,6 +434,7 @@ JavaScript Study
         + button을 click하면 어떤 li를 지워줘야 하는지 모르기 때문에 target의 parentElement를 사용
             * target은 html element(클릭했을 때의 대상)
                 - parentElement는 target의 property로 클릭된 element의 부모이다
+***
 ### 7.3 Saving To Dos
 * 만든 to do list를 저장하자
     - local storage 이용
@@ -442,6 +446,7 @@ JavaScript Study
             * JSON.stringify라는 함수로 javascript의 어떤 코드나 element든 문자열로 만들 수 있음
                 - 이건 중복 가능
     4. 마지막에 실행시킬 함수(handleToDoSubmit)에 저장하는 함수를 넣어서 실행시켜준다
+***
 ### 7-4. Loading To Dos part One
 * local storage에 있는 데이터를 array로 불러오자
     - 그냥 불러오면 string 형태로 된 array를 갖고옴
@@ -460,7 +465,8 @@ JavaScript Study
     parsedToDos.forEach((item) => console.log("this is the turn of ", item));
     ```
         + 1번과 2번은 같은 결과를 출력함
-### 7-5. Loading To Dos part Two
+***
+### 7.5 Loading To Dos part Two
 * 불러온 data를 화면에 출력하자
     - 전에 만들었던 출력하는 함수(paintToDo)를 활용
     1. (if문 안에) foreach를 써서 불러온 array의 각 원소에 paintToDo를 적용시켜서 출력함
@@ -468,4 +474,104 @@ JavaScript Study
         + JS파일에서 toDos array는 비어있는 상태로 시작했기 때문에 덮어쓰는 문제가 발생하기 때문
         1. 처음 array를 만드는 변수를 let을 써서 나중에 바꿀 수 있도록 함
         2. if문(savedToDos가 null이 아님, 즉, local storage에 data가 있음)에 처음의 empty array에 저장된 array를 덮어씌움
-            
+***
+### 7.6 Deleting To Dos part One
+* Delete할 때마다 Local Storage에 저장하기
+* toDos Array가 데이터베이스
+    - console에 toDos 치면 뜨는 것
+    - local storage는 toDos Array를 복사해놓은 곳
+* toDos에 중복된 값이 들어가면 delete를 했을 때 어떤 값을 지워야 하는지 알 수 없음
+    - e.g. ["a", "a"]
+    - 그래서 toDos를 dictionary로 만들어서 id를 부여함
+    - text만 push하지 않고 object를 push함
+* Date.now 함수: 1000분의 1초를 주는 함수
+    - 랜덤 숫자를 줄 때 씀
+* 투두리스트의 각 항목에 id를 부여하기
+    1. 랜덤 ID(Date.now)와 text(newToDo, toDoInput의 value)를 부여하는 object를 새로 하나 만듦
+    2. 기존에 newTodo를 push하는 부분에서, 새로 만든 object를 push함
+    3. 화면에 투두리스트를 출력하는(HTML요소를 만드는) paintToDo 함수의 argument에 newToDo말고 새로 만든 object를 사용함
+    4. paintToDo 함수에서는 기존의 newToDo를 사용했었기 때문에 화면에 [object, object] 라고 출력됨
+        + span.innerText가 newToDo이기 때문에 newToDo의 ID와 Text 중 어떤 것을 출력하는지 명시를 안해놔서 object라고 출력하는 것
+        + span.innerText에 newTodo.text를 입력함
+    5. paintToDo에서 li element를 만들고 난 후에 li의 id를 newToDo의 id로 만들어줌
+        + 유저가 투두리스트를 만들고 submit할 때마다(handleToDoSubmit 함수를 실행시킬 때마다) paintToDo를 실행하는데, 그때 만들어지는 li에 id를 부여하는 것
+***
+### 7.7 Deleting To Dos part Two
+* Delete할 때마다 Local Storage에 저장하기
+* filter 함수
+    - argument에 있는 함수를 마치 forEach 함수가 실행되는 것처럼 적용시킬 array의 각 element에 실행함
+        + 실행시킬 함수가 true를 return해야 array에 적용됨
+        + false를 return하는 element는 제외됨
+        + 즉, 특정 element에 대해 함수가 false를 return한다면 함수는 해당 element를 제외한 나머지 element가 들어있는 array를 출력함
+    - 예시
+        ```js
+        const todos = [{text:"lalalala"}, {text:"lolololo"}];
+        function sexyFilter(todo){ return todo.text !== "lolololo"};
+        todos.filter(sexyFilter);
+        ```
+        + arrow function으로 만들어보자
+            ```js
+            const todos = [{text:"lalalala"}, {text:"lolololo"}];
+            todos.filter(item => item.text !== "lolololo");
+            ```
+    - filter을 하면 기존의 array에서 특정 element를 지우는게 아니라 특정 element가 없어진 새로운 array를 만듦
+***
+### 7.8 Deleting To Dos part Three
+* Delete할 때마다 local storage에 저장하기
+* 화면의 x버튼을 누를때마다 id를 받아서 그 id에 해당하는 todo를 지우기
+    1. li.remove를 한 다음에 todos에 filter를 적용해서 해당 id를 갖고 있는 element를 삭제한 array를 toDos에 저장함
+        + 위의 arrow function 참조
+    2. saveToDos를 해서 local storage에 변경한 array를 저장함
+***
+8\) Weather
+---
+### 8.0 Geolocation
+* 화면에 날씨를 출력하기
+* 우선 geolocation을 알아내자
+    * navigator.geolocation.getCurrentPosition(SuccessCallback, errorCallback)
+        + SuccessCallback: 모든 게 잘 됐을 때 실행될 함수
+        + errorCallback: 에러가 생겼을 때 실행될 함수
+        1. 성공했을 때 실행될 함수에 JS가 정보를 담을 자리(argument)를 만들어 둠
+        2. 위도와 경도를 받을 변수를 만들어서 방금 만든 자리에 coords를 넣어줌
+***
+### 8.1 Weather API
+* 화면에 날씨를 출력하기
+* weather api를 가져오기
+    - api: 다른 서버와 이야기할 수 있는 방법
+        + openweathermap 서버와 대화해보자
+    1. openweathermap.org에 가입함
+    2. current weather data의 api doc에 들어감
+    3. 거기서 위도와 경도, api key를 입력하면 되는 주소를 복붙해서 해당 정보를 입력하면 정보가 나옴
+        + 이메일 인증하고 좀 기다려야 함 (10분 정도?)
+    4. js파일에 url을 담은 변수를 만들어줌
+        + 백틱(`)을 이용해서 위도와 경도, api를 넣어줌
+        + 섭씨로 바꿔주려면 url 뒤에 &units=metric을 넣어줌
+    5. fetch를 사용해서 url을 call함
+        + Network를 들어가면 인터넷에서 무슨일이 일어나는지 보여주는데, js가 해당 url을 요청했다는 것을 보여줌
+        + fetch는 promise라서 서버의 응답을 기다려야 함
+        + then()을 사용해서 response의 json()을 받아야 함
+            * 해당 부분은 json에 대한 이해가 필요
+            ```js
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                const weather = document.querySelector("#weather span:first-child");
+                const city = document.querySelector("#weather span:last-child");
+                city.innerText = data.name;
+                weather.innerText = data.weather[0].main;
+            });
+            ```
+            * HTML에 span을 두 개 따로 만든 후, js에 weather 변수에는 json data의 weather을, city data에는 weather 안의 city를 넣어주도록 함
+    6. temp도 넣어줌
+***
+### 8.2 Conclusion
+* 웹사이트 끝
+* api key와 같은 민감한 정보가 들어있는 변수를 gitignore에 넣어주기
+    1. api key의 변수를 별도의 파일을 만들어 저장함
+        + 전역변수로 설정하여 다른 파일에서 접근할 수 있도록 한다
+            ```js
+            var API_KEY = "abcd";
+            ```
+    2. .gitignore 파일에 해당 파일을 넣어둠
+    3. git에 push할 때 제외되었는지 확인함
+***
